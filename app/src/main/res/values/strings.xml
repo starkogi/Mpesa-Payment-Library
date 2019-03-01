@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">KogiLibraries</string>
+
+    <string name="BusinessShortCode">174379</string>
+    <string name="TransactionType" >CustomerPayBillOnline</string>
+    <string name="CallBackURL">http://starkogi.com/felister_water_bills/mpesa_api_callback.php?acc_no=</string>
+    <string name="ConsumerKey">bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919</string>
+    <string name="ConsumerSecret">e3zFXXAfGgr7HlHe</string>
+
+</resources>

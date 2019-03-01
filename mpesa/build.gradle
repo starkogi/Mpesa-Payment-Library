@@ -1,0 +1,52 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 28
+
+
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildTypes.each {
+        it.buildConfigField 'String', 'CONSUMER_KEY', '"GpC2ynrnl0oKa2GruhD9G2gCAiTThOFr"'
+        it.buildConfigField 'String', 'CONSUMER_SECRET', '"e3zFXXAfGgr7HlHe"'
+        it.buildConfigField 'String', 'BUSINESS_SHORT_CODE', '"174379"'
+        it.buildConfigField 'String', 'PASSKEY', '"bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919"'
+        it.buildConfigField 'String', 'TRANSACTION_TYPE', '"CustomerPayBillOnline"'
+        it.buildConfigField 'String', 'PARTYB', '"174379"'
+        it.buildConfigField 'String', 'CALLBACK_URL', '"http://starkogi.com/felister_water_bills/mpesa_api_callback.php?acc_no="'
+    }
+
+}
+
+dependencies {
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    //Custom
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+
+
+}
