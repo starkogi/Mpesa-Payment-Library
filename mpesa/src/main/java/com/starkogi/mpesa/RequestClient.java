@@ -21,11 +21,17 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RequestClient {
 
+    private String ConsumerKey;
+    private String ConsumerSecret;
+    private String PassKey;
     private Retrofit retrofit;
     private Interceptor interceptor;
     private AccessToken accessToken;
 
-    public RequestClient() {
+    public RequestClient(String consumerKey, String consumerSecret, String passKey) {
+        ConsumerKey = consumerKey;
+        ConsumerSecret = consumerSecret;
+        PassKey = passKey;
     }
 
     public RequestClient(Interceptor interceptor) {
@@ -64,6 +70,8 @@ public class RequestClient {
 
     public void createPushSTK(final STKPushData stkPushData){
 
+        stkPushData.setPassword(new Utils().generateMpesaB64Password(stkPushData.getBusinessShortCode(), PassKey, stkPushData.getTimestamp()));
+
         //Check if the Access Token exists | and if not expired
 
         if(accessToken != null){
@@ -73,7 +81,7 @@ public class RequestClient {
             return;
         }
 
-        new RequestClient(new AccessTockenHttpInterceptor()).getInstance().getAccessToken().enqueue(new Callback<AccessToken>() {
+        new RequestClient(new AccessTockenHttpInterceptor(ConsumerKey, ConsumerSecret)).getInstance().getAccessToken().enqueue(new Callback<AccessToken>() {
             @Override
             public void onResponse(Call<AccessToken> call, Response<AccessToken> response) {
                 Log.i("AccessToken ", new Gson().toJson(response.body()));
@@ -98,15 +106,17 @@ public class RequestClient {
 
     private void push(final STKPushData stkPushData) {
 
+        Log.i("Json Response ", new Gson().toJson(stkPushData));
+
         new RequestClient(new MpesaRequestAuthHttpInterceptor(accessToken)).getInstance().postRequest(stkPushData).enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                Log.i("Json Response ", new Gson().toJson(response.message()));
+                Log.i("STKPush Response ", new Gson().toJson(response.message()));
             }
 
             @Override
             public void onFailure(Call<JsonObject> call, Throwable t) {
-                Log.i("Json Error ", t.getMessage());
+                Log.i("STKPush Error ", t.getMessage());
 
             }
         });

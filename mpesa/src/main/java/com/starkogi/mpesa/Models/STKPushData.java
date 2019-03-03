@@ -18,27 +18,33 @@ public class STKPushData {
     private String AccountReference;
     private String TransactionDesc;
 
-    public STKPushData(String amount, String partyA, String phoneNumber, String accountReference,
-                       String transactionDesc) {
+
+    public STKPushData(String businessShortCode, String transactionType, String amount,
+                       String partyA, String callBackURL, String
+                               accountReference, String transactionDesc) {
+        BusinessShortCode = businessShortCode;
+        TransactionType = transactionType;
         Amount = amount;
         PartyA = partyA;
-        PhoneNumber = new Utils().getMpesaFormatedPhoneNumber(phoneNumber);
+        PartyB = businessShortCode;
+        PhoneNumber = new Utils().getMpesaFormatedPhoneNumber(partyA);
+        CallBackURL = callBackURL;
         AccountReference = accountReference;
         TransactionDesc = transactionDesc;
 
-        setUpDefaults();
+        Timestamp = new Utils().getTimestamp();
+
     }
 
-    private void setUpDefaults() {
+    public void setPassword(String password) {
+        Password = password;
+    }
 
-        BusinessShortCode = new Utils().getBusinessShortCode();
-        TransactionType = new Utils().getTransactionType();
-        PartyB= new Utils().getBusinessShortCode();
-        CallBackURL= new Utils().getCallBackURL();
+    public String getBusinessShortCode() {
+        return BusinessShortCode;
+    }
 
-        Timestamp = new Utils().getTimestamp();
-        Password = new Utils().generateMpesaB64Password(BusinessShortCode,BuildConfig.PASSKEY,Timestamp);
-
-
+    public String getTimestamp() {
+        return Timestamp;
     }
 }

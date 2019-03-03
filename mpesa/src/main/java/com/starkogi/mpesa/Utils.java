@@ -46,27 +46,4 @@ public class Utils {
         return Base64.encodeToString((businessShortCode + passkey + timestamp).getBytes(), Base64.NO_WRAP);
     }
 
-    public String getConsumerKey() {
-        return BuildConfig.CONSUMER_KEY;
-
-    }
-
-    public String getConsumerSecret() {
-        return BuildConfig.CONSUMER_SECRET;
-
-    }
-
-    public String getBusinessShortCode() {
-        return BuildConfig.BUSINESS_SHORT_CODE;
-    }
-
-    public String getTransactionType() {
-        return BuildConfig.TRANSACTION_TYPE;
-
-    }
-
-    public String getCallBackURL() {
-        return BuildConfig.CALLBACK_URL;
-
-    }
 }
