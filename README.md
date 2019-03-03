@@ -1,6 +1,7 @@
 # Mpesa Payment Library For Android
 This repository contains the MPesa Android STK Payment Library that provides easy Mpesa STK Payment integration to android apps 
 
+
 It currently includes the following Mpesa api
   For Lipa Na M-Pesa payment using STK Push.(M-PESA EXPRESS REQUEST)
 
