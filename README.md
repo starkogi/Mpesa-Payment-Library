@@ -2,23 +2,24 @@
 This repository contains the MPesa Android STK Payment Library that provides easy Mpesa STK Payment integration to android apps 
 
 It currently includes the following Mpesa api
-  For Lipa Na M-Pesa payment using STK Push.(M-PESA EXPRESS REQUEST)
+  For Lipa Na M-Pesa payment using STK Push. (M-PESA EXPRESS REQUEST)
 
-Mpesa is a mobile payment platform from Safaricom and  Mpesa Payment Library help you easily intergrate MPesa payment when building your app . More information about Mpesa api can be found at https://developer.safaricom.co.ke/apis
+Mpesa is a mobile payment platform from Safaricom and Mpesa Payment Library help you easily integrate MPesa payment when building your app . More information about Mpesa api can be found at https://developer.safaricom.co.ke/apis
 
-# Requrement
+# Requirements
 
 Android Studio
+
 JDK Version 1.7+
 
 # Getting Started
 
-You will need to get Mpesa API credentions from Daraja by Safaricom
+You will need to get Mpesa API credentials from Daraja by Safaricom
 
-# Generate Mpesa Credentials
-1. Create an accout from Daraja (Safaricom API Developer Portal https://developer.safaricom.co.ke/login-register)
-2. Create an App   (Lipa na Mpesa Sandbox)
-3. Select the App you created in (2) and get the #Consumer Key#	& #Consumer Secret#	 (Found under My Apps On the Navigation bar)
+	# Generate Mpesa Credentials
+1. Create an account from Daraja (Safaricom API Developer Portal https://developer.safaricom.co.ke/login-register)
+2. Create an App (Lipa na Mpesa Sandbox)
+3. Select the App you created in (2) and get the #Consumer Key#	& #Consumer Secret#	 (Found under My Apps on the Navigation bar)
 4. Get the test pass Key from https://developer.safaricom.co.ke/test_credentials (Lipa Na Mpesa Online PassKey:)
 
 # Import StarKogi Mpesa Payment Library to Project
@@ -201,5 +202,6 @@ new RequestClient(BuildConfig.CONSUMER_KEY, BuildConfig.CONSUMER_SECRET, BuildCo
 Voilà you are good.
 
 You'll receive a push on the phone registered on the STKPushData
+
 
 
