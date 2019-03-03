@@ -1,7 +1,6 @@
 # Mpesa Payment Library For Android
 This repository contains the MPesa Android STK Payment Library that provides easy Mpesa STK Payment integration to android apps 
 
-
 It currently includes the following Mpesa api
   For Lipa Na M-Pesa payment using STK Push.(M-PESA EXPRESS REQUEST)
 
@@ -25,6 +24,7 @@ You will need to get Mpesa API credentions from Daraja by Safaricom
 # Import StarKogi Mpesa Payment Library to Project
 
 1. Add the following to your build.gradle (Project: YourProject) under repositories{} in allprojects{}
+```
 
   maven { url 'https://jitpack.io' }
   
@@ -37,12 +37,14 @@ You will need to get Mpesa API credentions from Daraja by Safaricom
 
       }
   }
+```
 
 2. Add the following to your build.gradle (Module: app) under android{}
 
 //Please remember to replace the CONSUMER_KEY key and the CONSUMER_SECRET with the ones you got at (3) above (Generate Mpesa Credential)
 //On going live please note that safaricom will provide you with new CONSUMER_KEY, CONSUMER_SECRET, BUSINESS_SHORT_CODE, PASSKEY and PARTYB.
 
+```
 buildTypes.each {
           it.buildConfigField 'String', 'CONSUMER_KEY', '"P22CdGN8TX2KPlIbUjc0Jhtwth8FFvH7"'
           it.buildConfigField 'String', 'CONSUMER_SECRET', '"lLXBDDL6HdmpoIvk"'
@@ -52,30 +54,35 @@ buildTypes.each {
           it.buildConfigField 'String', 'PARTYB', '"174379"'
           it.buildConfigField 'String', 'CALLBACK_URL', '"http://starkogi.com/mpesa_api_callback.php?acc_no="'
       }
-      
+  ```
+    
 Like this 
 
+```
 android {
-    ......................
 
-     buildTypes.each {
-          it.buildConfigField 'String', 'CONSUMER_KEY', '"P22CdGN8TX2KPlIbUjc0Jhtwth8FFvH7"'
-          it.buildConfigField 'String', 'CONSUMER_SECRET', '"lLXBDDL6HdmpoIvk"'
-          it.buildConfigField 'String', 'BUSINESS_SHORT_CODE', '"174379"'
-          it.buildConfigField 'String', 'PASSKEY', '"bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919"'
-          it.buildConfigField 'String', 'TRANSACTION_TYPE', '"CustomerPayBillOnline"'
-          it.buildConfigField 'String', 'PARTYB', '"174379"'
-          it.buildConfigField 'String', 'CALLBACK_URL', '"http://starkogi.com/mpesa_api_callback.php?acc_no="'
-      }
+   buildTypes.each {
+        it.buildConfigField 'String', 'CONSUMER_KEY', '"P22CdGN8TX2KPlIbUjc0Jhtwth8FFvH7"'
+        it.buildConfigField 'String', 'CONSUMER_SECRET', '"lLXBDDL6HdmpoIvk"'
+        it.buildConfigField 'String', 'BUSINESS_SHORT_CODE', '"174379"'
+        it.buildConfigField 'String', 'PASSKEY', '"bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919"'
+        it.buildConfigField 'String', 'TRANSACTION_TYPE', '"CustomerPayBillOnline"'
+        it.buildConfigField 'String', 'PARTYB', '"174379"'
+        it.buildConfigField 'String', 'CALLBACK_URL', '"http://starkogi.com/mpesa_api_callback.php?acc_no="'
+    }
 }
+```
 
-
-    
 3. Add this line below to your build.gradle (Module: app) under dependencies
  
+ ```
 implementation 'com.github.starkogi:Mpesa-Payment-Library:VersionCode'
 
+```
+
 Like this
+
+```
 
   dependencies {
         ...................
@@ -83,9 +90,11 @@ Like this
    }
 
     
-    
+ ```
+ 
 Your app module build.gradle should now look like this
 
+```
 apply plugin: 'com.android.application'
 
 android {
@@ -127,9 +136,12 @@ dependencies {
     implementation 'com.github.starkogi:Mpesa-Payment-Library:v1.0.2'
 
 }
+```
 
 Your project module build.gradle should now look like this
 
+
+```
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
@@ -160,10 +172,14 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
-# Usage (Generate Mpesa SQK Push)
+```
+
+# Usage (Generate Mpesa STK Push)
 You are now good to go...
 
 Just Create STK Push Request Body from STKPushData.class
+
+```
 
 STKPushData stkPushData = new STKPushData(
                 BuildConfig.BUSINESS_SHORT_CODE,
@@ -175,10 +191,13 @@ STKPushData stkPushData = new STKPushData(
                 "Paying For Violets pedicure" //Transaction Desc
         );
 
+```
 Then make HTTP Request to safaricom api server
-        
+   
+```   
 new RequestClient(BuildConfig.CONSUMER_KEY, BuildConfig.CONSUMER_SECRET, BuildConfig.PASSKEY).createPushSTK(stkPushData);
 
+```
 Voilà you are good.
 
 You'll receive a push on the phone registered on the STKPushData
