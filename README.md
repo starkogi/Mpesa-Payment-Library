@@ -87,7 +87,7 @@ Like this
 
   dependencies {
         ...................
-        implementation 'com.github.starkogi:Mpesa-Payment-Library:v1.0.2'
+	        implementation 'com.github.starkogi:Mpesa-Payment-Library:v1.0.3'
    }
 
     
