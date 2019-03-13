@@ -27,11 +27,13 @@ public class RequestClient {
     private Retrofit retrofit;
     private Interceptor interceptor;
     private AccessToken accessToken;
+    private boolean IsProduction;
 
-    public RequestClient(String consumerKey, String consumerSecret, String passKey) {
+    public RequestClient(String consumerKey, String consumerSecret, String passKey,boolean isProduction) {
         ConsumerKey = consumerKey;
         ConsumerSecret = consumerSecret;
         PassKey = passKey;
+        IsProduction = isProduction;
     }
 
     public RequestClient(Interceptor interceptor) {
@@ -46,7 +48,7 @@ public class RequestClient {
 
         if (retrofit == null) {
             retrofit = new retrofit2.Retrofit.Builder()
-                    .baseUrl(new Utils().getMpesaBaseUrl())
+                    .baseUrl(new Utils().getMpesaBaseUrl(IsProduction))
                     .addConverterFactory(GsonConverterFactory.create())
                     .client(okhttpBuilder)
                     .build();

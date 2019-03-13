@@ -9,11 +9,17 @@ import java.util.Locale;
 public class Utils {
 
     private static final String MPESA_BASE_URL = "https://sandbox.safaricom.co.ke/";
+    private static final String MPESA_BASE_URL_PROD = "https://api.safaricom.co.ke/";
 
 
     //Expose the Url to other classes
-    public static String getMpesaBaseUrl() {
+    public static String getMpesaBaseUrl(boolean isProduction) {
+        if (isProduction)
+            return MPESA_BASE_URL_PROD;
+
         return MPESA_BASE_URL;
+
+
     }
 
     //Return Mpesa accepted Timestamp format

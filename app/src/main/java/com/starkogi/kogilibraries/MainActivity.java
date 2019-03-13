@@ -28,7 +28,8 @@ public class MainActivity extends AppCompatActivity {
                 "Paying For Violets pedicure"
         );
 
-        new RequestClient(BuildConfig.CONSUMER_KEY, BuildConfig.CONSUMER_SECRET, BuildConfig.PASSKEY).createPushSTK(stkPushData);
+        new RequestClient(BuildConfig.CONSUMER_KEY, BuildConfig.CONSUMER_SECRET, BuildConfig.PASSKEY,
+                false).createPushSTK(stkPushData);
 
     }
 }
