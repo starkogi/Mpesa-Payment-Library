@@ -14,7 +14,7 @@ JDK Version 1.7+
 
 # Getting Started
 
-You will need to get Mpesa API credentials from Daraja by Safaricom
+You will need to get Mpesa API credentials on Daraja by Safaricom
 
 	# Generate Mpesa Credentials
 1. Create an account from Daraja (Safaricom API Developer Portal https://developer.safaricom.co.ke/login-register)
@@ -42,7 +42,8 @@ You will need to get Mpesa API credentials from Daraja by Safaricom
 
 2. Add the following to your build.gradle (Module: app) under android{}
 
-//Please remember to replace the CONSUMER_KEY key and the CONSUMER_SECRET with the ones you got at (3) above (Generate Mpesa Credential)
+//Please remember to replace the CONSUMER_KEY key and the CONSUMER_SECRET with the ones you got at (3) above (Generate Mpesa Credential).
+
 //On going live please note that safaricom will provide you with new CONSUMER_KEY, CONSUMER_SECRET, BUSINESS_SHORT_CODE, PASSKEY and PARTYB.
 
 ```
