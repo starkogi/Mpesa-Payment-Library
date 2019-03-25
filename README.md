@@ -8,8 +8,7 @@ Mpesa is a mobile payment platform from Safaricom and Mpesa Payment Library help
 
 # Requirements
 
-Android Studio
-
+Android Studio or any other prefered IDE.
 JDK Version 1.7+
 
 # Getting Started
