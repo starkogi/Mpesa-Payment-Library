@@ -33,7 +33,7 @@ You will need to get Mpesa API credentials on Daraja by Safaricom
   
   allprojects {
       repositories {
-          ..................
+          ...
           maven { url 'https://jitpack.io' }
 
       }
@@ -87,7 +87,7 @@ Like this
 ```
 
   dependencies {
-        ...................
+        ...
 	        implementation 'com.github.starkogi:Mpesa-Payment-Library:v1.0.3'
    }
 
