@@ -193,8 +193,9 @@ STKPushData stkPushData = new STKPushData(
         );
 
 ```
-Then make HTTP Request to safaricom api server 
-\nNOTE : Change the last parameter value to true when going live
+Then make HTTP Request to safaricom api server.
+
+NOTE : Change the last parameter value to true when going live
    
 ```   
 new RequestClient(BuildConfig.CONSUMER_KEY, BuildConfig.CONSUMER_SECRET, BuildConfig.PASSKEY,
