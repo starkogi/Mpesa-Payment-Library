@@ -186,7 +186,7 @@ STKPushData stkPushData = new STKPushData(
                 BuildConfig.BUSINESS_SHORT_CODE,
                 BuildConfig.TRANSACTION_TYPE,
                 "100", //Amount
-                "254727269588", //Phone Number
+                "254708374149", //Phone Number
                 BuildConfig.CALLBACK_URL,
                 "StarKogi", //Account Reference
                 "Paying For Violets pedicure" //Transaction Desc
